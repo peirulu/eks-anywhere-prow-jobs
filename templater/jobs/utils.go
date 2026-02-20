@@ -13,12 +13,13 @@ import (
 )
 
 var releaseBranches = []string{
-	"1-28",
 	"1-29",
 	"1-30",
 	"1-31",
 	"1-32",
 	"1-33",
+	"1-34",
+	"1-35",
 }
 
 func GetJobsByType(repos []string, jobType string) (map[string]map[string]types.JobConfig, error) {

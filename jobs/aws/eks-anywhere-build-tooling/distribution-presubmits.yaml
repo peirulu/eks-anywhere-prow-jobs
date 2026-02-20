@@ -22,7 +22,7 @@ presubmits:
   aws/eks-anywhere-build-tooling:
   - name: distribution-tooling-presubmit
     always_run: false
-    run_if_changed: "^build/lib/.*|Common.mk|projects/distribution/distribution/.*"
+    run_if_changed: "^build/lib/.*|Common.mk|projects/goharbor/distribution/.*"
     branches:
     - ^main$
     cluster: "prow-presubmits-cluster"
@@ -42,7 +42,7 @@ presubmits:
       automountServiceAccountToken: false
       containers:
       - name: build-container
-        image: public.ecr.aws/eks-distro-build-tooling/builder-base:standard-c390691fc6524c276be9dd00e57fe3b37a353711.2
+        image: public.ecr.aws/eks-distro-build-tooling/builder-base:standard-700eaf7d638c420c39d9216b76099e6ed240ddfd.2
         command:
         - bash
         - -c
@@ -54,7 +54,7 @@ presubmits:
           if $(make check-project-path-exists); then make build -C $PROJECT_PATH; fi
         env:
         - name: PROJECT_PATH
-          value: "projects/distribution/distribution"
+          value: "projects/goharbor/distribution"
         - name: GITHUB_TOKEN
           valueFrom:
             secretKeyRef:
